@@ -30,7 +30,7 @@ function adicionar() {
         del.value = "Remover"
         del.classList = "dele"
         li.appendChild(check) //colocar o checkbox na lista
-         li.innerHTML += `<span id=${tarefa}txt>${tarefa}</span>` // colocar a tarefa na lista
+         li.innerHTML += `<span>${tarefa}</span>` // colocar a tarefa na lista
         li.appendChild(del)
         del.addEventListener("click",deletar)
 
@@ -54,7 +54,7 @@ function checar(){
     var c = event.currentTarget
     var d = c.parentElement
     var e = d.id
-    var texto = document.getElementById(`${e}txt`)
+    var texto = d.childNodes[1]
     if(c.checked){
         texto.innerHTML = `<del>${e}</del>`
         d.style.color = "rgb(21, 255, 0)"
