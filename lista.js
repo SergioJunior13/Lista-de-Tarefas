@@ -23,6 +23,7 @@ function adicionar() {
         check = document.createElement("input")
         check.type = "checkbox"
         check.id = "check"
+        check.setAttribute("onclick","checar()")
         //botao de deletar
         del = document.createElement("input")
         del.type = "button"
@@ -48,4 +49,19 @@ function focus(){
 function limpar(){
     lista.innerText = ""
     his.splice(0,his.length)
+}
+function checar(){
+    var c = event.currentTarget
+    var d = c.parentElement
+    var e = d.id
+    var texto = document.getElementById(`${e}txt`)
+    console.log(texto.textContent)
+    if(c.checked){
+        texto.innerHTML = `<del>${e}</del>`
+        d.style.color = "rgb(21, 255, 0)"
+    }
+    else{
+        texto.innerHTML = e 
+        d.style.color = "white"
+    }
 }
