@@ -53,6 +53,6 @@ function checar() {
     }
     else {
         texto.innerHTML = liElement.id
-        d.style.color = "#fff"
+        liElement.style.color = "#fff"
     }
 }

@@ -5,7 +5,7 @@ body {
     font-family: monospace;
 }
 
-section {
+ul {
     margin-left:10px;
     font-size: 20px;
 }
@@ -22,7 +22,7 @@ section {
     border-color: white;
     transition: all 500ms cubic-bezier(0.23, 1, 0.320, 1);
 }
-button {
+div > button {
     outline-style:none;
     border-radius:30px;
     border:solid white;
@@ -46,30 +46,33 @@ button {
    padding-left:10px;
    
 }
+
 #limpa{
     border-radius:20px;
     width:75px;
-font-size:18px;
+    font-size:18px;
 }
+
 hr{
     height:0.5;
     border-radius:10px;
     border: solid white;
 }
+
 .check{
     vertical-align:middle;
 }
-header{
-    margin-left:10px;
-}
+
 button:hover{
     background-color:white;
     color:black;
 }
+
 .delete:hover{
     background-color:white;
     color:black;
 }
+
 ::placeholder{
     color:white;
 }
