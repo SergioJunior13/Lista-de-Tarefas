@@ -1,66 +1,58 @@
-let tarefa
-let li
-let check
-let del
-let his = []
+let tarefa, li, check, del
+let historico = []
 let lista = document.getElementById("lista")
-document.getElementById("tarefa").addEventListener("focus",focus)
+let tarefaInput = document.getElementById("tarefa")
+
+tarefaInput.addEventListener("focus", (event) => {
+    event.currentTarget.select()
+})
+
 function adicionar() {
-    tarefa = document.getElementById("tarefa").value
+    tarefa = tarefaInput.value
+
     if (tarefa == "") {
         alert("Insira uma tarefa primeiro.")
     }
-    else{
-    if(his.indexOf(tarefa) != -1){
+    else if (historico.indexOf(tarefa) != -1) {
         alert("Essa tarefa já existe")
     }
     else {
-        his.push(tarefa)
+        historico.push(tarefa)
         li = document.createElement("li")
         li.id = tarefa
-        lista.appendChild(li)
-        //checkbox
-        check = document.createElement("input")
-        check.type = "checkbox"
-        check.id = "check"
-        check.setAttribute("onclick","checar()")
-        //botao de deletar
-        del = document.createElement("input")
-        del.type = "button"
-        del.value = "Remover"
-        del.classList = "dele"
-        li.appendChild(check) //colocar o checkbox na lista
-         li.innerHTML += `<span>${tarefa}</span>` // colocar a tarefa na lista
-        li.appendChild(del)
-        del.addEventListener("click",deletar)
 
-        function deletar(){
-            var a = event.currentTarget
-            var b = a.parentElement
-            his.splice(his.indexOf(b.id),1)
-            lista.removeChild(b)
-            
-        }
-    }}
-}
-function focus(){
-    document.getElementById("tarefa").value = ""
-}
-function limpar(){
-    lista.innerText = ""
-    his.splice(0,his.length)
-}
-function checar(){
-    var c = event.currentTarget
-    var d = c.parentElement
-    var e = d.id
-    var texto = d.childNodes[1]
-    if(c.checked){
-        texto.innerHTML = `<del>${e}</del>`
-        d.style.color = "rgb(21, 255, 0)"
+        check = "<input type='checkbox' class='check' onclick='checar()'>"
+        del = "<button onclick='deletar()' class='delete'>Remover</button>"
+
+        li.innerHTML = check + `<span>${tarefa}</span>` + del
+        lista.appendChild(li)
+
     }
-    else{
-        texto.innerHTML = e 
-        d.style.color = "white"
+}
+
+function deletar() {
+    var button = event.currentTarget
+    var liElement = button.parentElement
+
+    historico.splice(historico.indexOf(liElement.id), 1)
+    lista.removeChild(liElement)
+}
+
+function limpar() {
+    lista.innerText = ""
+    historico.splice(0, historico.length)
+}
+function checar() {
+    var checkboxElement = event.currentTarget
+    var liElement = checkboxElement.parentElement
+    var texto = liElement.childNodes[1]
+
+    if (checkboxElement.checked) {
+        texto.innerHTML = `<del>${liElement.id}</del>`
+        liElement.style.color = "rgb(21, 255, 0)"
+    }
+    else {
+        texto.innerHTML = liElement.id
+        d.style.color = "#fff"
     }
 }

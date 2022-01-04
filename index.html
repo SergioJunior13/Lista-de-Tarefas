@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta name="description" content="Lista de tarefas online simples">
     <meta name="author" content="Sérgio Júnior">
@@ -11,25 +12,30 @@
     <link rel="stylesheet" href="lista.css">
     <title>Lista De Tarefas</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NWN307GST9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWN307GST9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-NWN307GST9');
-</script>
-<script data-ad-client="ca-pub-2683859460671203" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        gtag('config', 'G-NWN307GST9');
+    </script>
+    <script data-ad-client="ca-pub-2683859460671203" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
+
 <body>
-    <header>
-        <input type="text" id="tarefa" placeholder="Insira uma tarefa">
-        <button id="add" onclick="adicionar()">+</button>
-        <button onclick = "limpar()" id="limpa">Limpar</button>
-    </header>
-    <hr>
-    <section id = "lista"></section>
-    <footer></footer>
+    <main>
+        <div>
+            <input type="text" id="tarefa" placeholder="Insira uma tarefa">
+            <button id="add" onclick="adicionar()">+</button>
+            <button onclick="limpar()" id="limpa">Limpar</button>
+        </div>
+        <hr>
+        <ul id="lista"></ul>
+        <input type="checkbox" class="check" onclick="checar()">
+    </main>
     <script src="lista.js"></script>
 </body>
+
 </html>
